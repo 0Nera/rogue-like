@@ -29,4 +29,14 @@ public class MyRoguelikeGame extends ApplicationAdapter {
 		batch.dispose();
 		img.dispose();
 	}
+	
+	@Override
+	public void pause() {
+		Vars.isPaused = true;
+	}
+	
+	@Override
+	public void resume() {
+		Vars.isPaused = false;
+	}
 }
