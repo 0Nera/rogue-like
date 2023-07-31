@@ -1,0 +1,21 @@
+name: Build
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+    steps:
+    - name: Install dependencies
+      run: |
+        sudo apt install openjdk-17-jre-headless
+    - name: Build
+      run: |
+        cd test && ./gradlew
