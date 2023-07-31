@@ -1,6 +1,7 @@
 package game.roguelike.screens;
 
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.utils.ScreenUtils;
 
 public class GameScreen implements Screen {
 
@@ -12,8 +13,7 @@ public class GameScreen implements Screen {
 
 	@Override
 	public void render(float delta) {
-		// TODO Auto-generated method stub
-		
+		ScreenUtils.clear(.1f, .1f, .1f, 1f);
 	}
 
 	@Override
