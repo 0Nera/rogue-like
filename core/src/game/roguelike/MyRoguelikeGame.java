@@ -1,32 +1,38 @@
 package game.roguelike;
 
-import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
 
-public class MyRoguelikeGame extends ApplicationAdapter {
-	
-	SpriteBatch batch;
-	Texture img;
+import game.roguelike.screens.GameScreen;
+
+public class MyRoguelikeGame extends Game {
 	
 	@Override
 	public void create() {
-		batch = new SpriteBatch();
-		img = new Texture("badlogic.jpg");
+		setScreen(new GameScreen());
 	}
 
 	@Override
 	public void render() {
-		ScreenUtils.clear(1, 0, 0, 1);
-		batch.begin();
-		batch.draw(img, 0, 0);
-		batch.end();
+		super.render();
 	}
 	
 	@Override
 	public void dispose() {
-		batch.dispose();
-		img.dispose();
+		super.dispose();
+	}
+	
+	@Override
+	public void pause() {
+		Vars.isPaused = true;
+		super.pause();
+	}
+	
+	@Override
+	public void resume() {
+		Vars.isPaused = false;
+		super.resume();
 	}
 }
